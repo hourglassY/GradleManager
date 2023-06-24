@@ -1,0 +1,52 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+android {
+    compileSdkVersion build_versions.compile_sdk
+//     buildToolsVersion build_versions.build_tools
+
+    defaultConfig {
+        applicationId "com.example.extgradle"
+        minSdkVersion build_versions.min_sdk
+        targetSdkVersion build_versions.target_sdk
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation project(':lib_core')
+    implementation project(':module_base')
+    implementation project(':module_a')
+    implementation project(':module_b')
+//     implementation deps.core_ktx
+//     implementation deps.app_compat
+//     implementation deps.material
+//     implementation deps.constraint_layout
+//     testImplementation deps.junit
+//     androidTestImplementation deps.ext_junit
+//     androidTestImplementation deps.espresso_core
+//
+//     implementation deps.fragment.runtime
+//     implementation deps.fragment.runtime_ktx
+//     implementation deps.fragment.testing
+}

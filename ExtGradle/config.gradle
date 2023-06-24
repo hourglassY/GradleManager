@@ -1,0 +1,57 @@
+/**
+ * Gradle依赖全局管理-ext方式
+ * */
+ext.deps = [:]
+
+/**
+ * 定义全局的build_versions
+ */
+def build_versions = [:]
+build_versions.min_sdk = 21
+build_versions.compile_sdk = 31
+build_versions.target_sdk = 31
+build_versions.build_tools = "31.0.3"
+ext.build_versions = build_versions
+
+/**
+ * 定义全局的Gradle依赖库版本
+ * */
+def versions = [:]
+versions.android_gradle_plugin = "4.0.1"
+versions.core_ktx = "1.1.0"
+versions.kotlin = "1.6.10"
+versions.appcompat = "1.2.0-alpha02"
+versions.material = "1.0.0"
+versions.constraint_layout = "2.0.0-alpha2"
+versions.junit = "4.12"
+versions.ext_junit = "1.1.2"
+versions.espresso_core = "3.2.0"
+versions.fragment = "1.2.0"
+
+ext.versions = versions
+
+/**
+ * 定义全局的Gradle依赖
+ * */
+def deps = [:]
+deps.android_gradle_plugin = "com.android.tools.build:gradle:$versions.android_gradle_plugin"
+
+def kotlin = [:]
+kotlin.plugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$versions.kotlin"
+deps.kotlin = kotlin
+
+deps.core_ktx = "androidx.core:core-ktx:$versions.core_ktx"
+deps.app_compat = "androidx.appcompat:appcompat:$versions.appcompat"
+deps.material = "com.google.android.material:material:$versions.material"
+deps.constraint_layout = "androidx.constraintlayout:constraintlayout:$versions.constraint_layout"
+deps.junit = "junit:junit:$versions.junit"
+deps.ext_junit = "androidx.test.ext:junit:$versions.ext_junit"
+deps.espresso_core = "androidx.test.espresso:espresso-core:$versions.espresso_core"
+
+def fragment = [:]
+fragment.runtime = "androidx.fragment:fragment:${versions.fragment}"
+fragment.runtime_ktx = "androidx.fragment:fragment-ktx:${versions.fragment}"
+fragment.testing = "androidx.fragment:fragment-testing:${versions.fragment}"
+deps.fragment = fragment
+
+ext.deps = deps

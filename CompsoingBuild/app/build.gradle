@@ -1,0 +1,57 @@
+import com.example.version.plugin.*
+
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+//     id 'com.example.version.plugin'
+}
+
+android {
+//     compileSdkVersion BuildConfig.compileSdkVersion
+    compileSdkVersion BuildConfig.compileSdkVersion
+
+    defaultConfig {
+        applicationId "com.example.compsoingbuild"
+//         minSdkVersion 21
+//         targetSdkVersion 31
+//         versionCode 1
+//         versionName "1.0"
+
+        minSdkVersion BuildConfig.minSdkVersion
+        targetSdkVersion BuildConfig.targetSdkVersion
+        versionCode BuildConfig.versionCode
+        versionName BuildConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation Deps.espresso_core
+    implementation Deps.app_compat
+    implementation Deps.material
+    implementation Deps.constraint_layout
+
+    testImplementation Deps.junit
+    androidTestImplementation Deps.ext_junit
+    androidTestImplementation Deps.espresso_core
+
+    implementation Deps.fragment_runtime
+    implementation Deps.fragment_runtime_ktx
+    implementation Deps.fragment_testing
+}
