@@ -90,7 +90,7 @@ implementation group:'com.android.support',name:'appcompat-v7',version:'28.0.0'
 implementation 'com.android.support:appcompat-v7:28.0.0'
 ```
 
-# 2. 使用ext的方式管理依赖库
+# 3. 使用ext的方式管理依赖库
 
 ext全局配置使用方式如下：
 
@@ -98,7 +98,7 @@ ext全局配置使用方式如下：
 -   在项目的build.gradle文件中使用config.gradle配置
 -   在模块的build.gradel文件中使用config.gradle配置
 
-## 2.1. 项目的build.gradle配置
+## 3.1. 项目的build.gradle配置
 
 首先在根目录下创建config.gradle文件来进行配置，如下所示：
 
@@ -163,10 +163,10 @@ task clean(type: Delete) {
 }
 ```
 
-## 2.2. 模块的build.gradle配置
+## 3.2. 模块的build.gradle配置
 
 
-### 2.2.1. 配置buildVersion版本
+### 3.2.1. 配置buildVersion版本
 
 继续在config.build文件中定义统一的buildVersion，如下所示：
 
@@ -210,7 +210,7 @@ dependencies {
 
 这么做的好处就是，更好的保证了多个模块buildVersion的统一。
 
-### 2.2.2. 配置dependencies
+### 3.2.2. 配置dependencies
 
 继续在config.gradle中定义依赖，如下所示：
 
